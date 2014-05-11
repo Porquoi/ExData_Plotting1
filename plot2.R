@@ -8,7 +8,7 @@ shpc$Date2 <- as.Date(shpc$Date, format="%d/%m/%Y") #to format the character dat
 
 sfeb_dates <- subset(shpc, format(Date2, "%Y-%m-%d") == "2007-02-01" | format(Date2, "%Y-%m-%d") == "2007-02-02") #we then subset the data set such that the the dates are those we are concerned with, 2/1/2007 & 2/2/2007
 
-sfeb_dates$Global_active_power <- as.numeric(feb_dates$Global_active_power) #we convert the variable we interested in from a character class to a numeric class in order to plot our histogram
+sfeb_dates$Global_active_power <- as.numeric(sfeb_dates$Global_active_power) #we convert the variable we interested in from a character class to a numeric class in order to plot our histogram
 
 inter_DateTime <- paste(sfeb_dates$Date2, sfeb_dates$Time, "EDT", sep=" ") #an intermediate construct trying to paste together the properly formatted date and the time
 
@@ -16,8 +16,8 @@ sfeb_dates$DateTime <- as.POSIXct(strptime(inter_DateTime, "%Y-%m-%d %H:%M:%S"))
 
 png(filename="/Users/Riemannian/Dropbox/zMOOCs/exploratory_data_analysis/ExData_Plotting1/plot2.png", height=480, width=480) #we open up the PNG device we plan to plot to)
 
-plot(sfeb_dates$Global_active_power ~ sfeb_dates$DateTime, type="l", xlab="", ylab="Global Active Power(kilowatts)")
+plot(sfeb_dates$Global_active_power ~ sfeb_dates$DateTime, type="l", xlab="", ylab="Global Active Power(kilowatts)") #plot the global_active_power against our date field
 
-dev.off()
+dev.off() #turn off the png device
 
 

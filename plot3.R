@@ -16,9 +16,9 @@ sfeb_dates$DateTime <- as.POSIXct(strptime(inter_DateTime, "%Y-%m-%d %H:%M:%S"))
 
 png(filename="/Users/Riemannian/Dropbox/zMOOCs/exploratory_data_analysis/ExData_Plotting1/plot3.png", height=480, width=480) #we open up the PNG device we plan to plot to)
 
-plot(sfeb_dates[, 7] ~ sfeb_dates$DateTime, type="l", col="black", ylim=y_range, ylab="Global Active Power (kilowatts)", xlab="")
+plot(sfeb_dates[, 7] ~ sfeb_dates$DateTime, type="l", col="black", ylim=y_range, ylab="Global Active Power (kilowatts)", xlab="") #we embark on our very complicated third plot with a black time series, involving authorizing the drawing vice to not update with a new plot
 
-par(new=T)
+par(new=T) # we do that by invoking the following command
 
 plot(sfeb_dates[, 8] ~ sfeb_dates$DateTime, type="l", col="red", ylim=y_range, axes=F, ylab="", xlab="")
 
@@ -30,4 +30,4 @@ legend("topright", names(sfeb_dates)[7:9], col=c("black", "red", "blue"), pt.lwd
 
 
 
-dev.off()
+dev.off() #turn off the png device
